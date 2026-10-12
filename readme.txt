@@ -18,8 +18,8 @@ HDWebmobile Secure Downloads gives customers a way to get back to their download
 
 Every download link shown is exactly the one WooCommerce's own core already generated for that order. This plugin never builds, guesses, or serves a file itself -- it only displays links WooCommerce is already willing to hand out, after confirming the requester actually owns the order.
 
-= Why this plugin exists =
-"Direct Download for WooCommerce" (versions up to and including 1.19) shipped CVE-2026-15019 (CWE-22 Path Traversal, CVSS 7.5): its download endpoint read a file path straight from the request and served it, and its "ownership" check only confirmed that *some* free, virtual, downloadable product existed on the site -- not that the specific file being requested belonged to the specific order being claimed. That let an unauthenticated visitor read arbitrary files on the server on any store with at least one qualifying product.
+= Security by design =
+A serious class of bug in download tools is a download endpoint that reads a file path straight from the request and serves it (CWE-22, Path Traversal), combined with an "ownership" check that only confirms *some* qualifying product exists -- not that the specific file being requested belongs to the specific order being claimed. That can let an unauthenticated visitor read arbitrary files on the server.
 
 This plugin is built so that mistake has nowhere to happen:
 
