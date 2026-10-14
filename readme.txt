@@ -40,6 +40,9 @@ This plugin is built so that mistake has nowhere to happen:
 * No email-based "resend my link" flow in this version; recovery is via the order number + order key lookup only
 * The optional email reminder is a plain line of text pointing at your lookup page, not a full resend of the actual links
 
+= Enjoying this plugin? =
+If it helps your site, please consider [leaving an honest review on WordPress.org](https://wordpress.org/support/plugin/hdwebmobile-secure-downloads/reviews/#new-post) -- it helps other WordPress users find it. Found a problem or have an idea? Please [open a support topic](https://wordpress.org/support/plugin/hdwebmobile-secure-downloads/) first so it can be fixed.
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/hdwebmobile-secure-downloads` directory, or install the plugin through the WordPress plugins screen directly.
