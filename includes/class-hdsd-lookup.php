@@ -10,12 +10,11 @@ if (!defined('ABSPATH')) {
  * Resolves an order number + order key into that order's downloadable items -- the ONLY
  * thing this plugin ever looks up, and the only class that touches order/download data.
  *
- * CVE-2026-15019 (CWE-22 Path Traversal, CVSS 7.5) in "Direct Download for WooCommerce"
- * (<= 1.19): the plugin's download endpoint read a file path from the request and served it
- * directly, and its "ownership" check only verified that SOME free/virtual/downloadable
- * product existed on the site at all -- not that the specific requested file belonged to the
- * specific order being claimed. That let an unauthenticated visitor read arbitrary files on
- * the server on any store that had at least one qualifying product.
+ * The risk this guards against (CWE-22, Path Traversal): a download endpoint that reads a
+ * file path from the request and serves it directly, with an "ownership" check that only
+ * verifies SOME downloadable product exists -- not that the requested file belongs to the
+ * specific order being claimed. That would let an unauthenticated visitor read arbitrary
+ * files on the server.
  *
  * This class closes that entire class of bug by construction:
  *

@@ -12,7 +12,7 @@ Download links appear automatically on the order confirmation page, and a `[hdsd
 
 ## Why this plugin exists
 
-"Direct Download for WooCommerce" (≤ 1.19) shipped CVE-2026-15019 (CWE-22 Path Traversal, CVSS 7.5): its download endpoint read a file path from the request and served it, checking only that *some* qualifying product existed on the site — not that the specific file belonged to the specific order being claimed. That let an unauthenticated visitor read arbitrary server files.
+The main risk in download plugins is path traversal (CWE-22): a download endpoint that reads a file path from the request and serves it, checking only that *some* qualifying product existed on the site — not that the specific file belonged to the specific order being claimed. That lets an unauthenticated visitor read arbitrary server files.
 
 This plugin is built so that mistake has nowhere to happen:
 
